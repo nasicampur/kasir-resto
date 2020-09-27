@@ -8,14 +8,13 @@ public class t_akhir {
     public static void menu() {
         int pilih = 0;
         Scanner inp = new Scanner(System.in);
-        do{
         clrscr();
-        System.out.println("-[KALKULATOR]-\n");
+        System.out.println("-[KALKULATOR MENU]-\n");
         System.out.println("1. Penjumlahan");
         System.out.println("2. Pengurangan");
         System.out.println("3. Perkalian");
         System.out.println("4. Pembagian");
-        System.out.println("5. Exit");
+        System.out.println("0. Exit");
         System.out.print("Pilih: ");
         pilih = inp.nextInt();
         switch(pilih){
@@ -31,11 +30,10 @@ public class t_akhir {
             case 4:
                 pembagian();
                 break;
-            case 5:
+            case 0:
                 exit();
                 break;
         }
-        }while(pilih<5);
     }
 
     public static void penjumlahan() {
@@ -52,18 +50,11 @@ public class t_akhir {
         clrscr();
         System.out.println("-[PENJUMLAHAN]-\n");
         System.out.println("Hasilnya adalah: " + hasil);
-        System.out.print("Continue (y/n) ? ");
-        pilih2 = inp.next();
-        if(pilih2 == "y"){
-            menu();
-        } else if(pilih2 == "n"){
-            exit();
-        }
+        lanjut();
     }
 
     public static void pengurangan(){
         int angka1, angka2, hasil;
-        String pilih2;
         Scanner inp = new Scanner(System.in);
         clrscr();
         System.out.println("-[PENGURANGAN]-\n");
@@ -75,20 +66,11 @@ public class t_akhir {
         clrscr();
         System.out.println("-[PENGURANGAN]-\n");
         System.out.println("Hasilnya adalah: " + hasil);
-        System.out.print("Continue (y/n) ? ");
-        pilih2 = inp.next();
-        switch(pilih2){
-            case "y":
-                menu();
-                break;
-            case "n":
-                break;
-        }
+        lanjut();
     }
 
     public static void perkalian(){
         int angka1, angka2, hasil;
-        String pilih2;
         Scanner inp = new Scanner(System.in);
         clrscr();
         System.out.println("-[PERKALIAN]-\n");
@@ -100,20 +82,11 @@ public class t_akhir {
         clrscr();
         System.out.println("-[PERKALIAN]-\n");
         System.out.println("Hasilnya adalah: " + hasil);
-        System.out.print("Continue (y/n) ? ");
-        pilih2 = inp.next();
-        switch(pilih2){
-            case "y":
-                menu();
-                break;
-            case "n":
-                break;
-        }
+        lanjut();
     }
 
     public static void pembagian(){
         int angka1, angka2, hasil;
-        String pilih2;
         Scanner inp = new Scanner(System.in);
         clrscr();
         System.out.println("-[PEMBAGIAN]-\n");
@@ -125,24 +98,28 @@ public class t_akhir {
         clrscr();
         System.out.println("-[PEMBAGIAN]-\n");
         System.out.println("Hasilnya adalah: " + hasil);
-        System.out.print("Continue (y/n) ? ");
-        pilih2 = inp.next();
-        switch(pilih2){
-            case "y":
-                menu();
-                break;
-            case "n":
-                break;
-        }
+        lanjut();
     }
 
-    public static void clrscr() {  
+    public static void clrscr(){  
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
 
+    public static void lanjut(){
+        String pilih2;
+        Scanner inp = new Scanner(System.in);
+        System.out.print("\nKembali ke menu (y/n)? ");
+        pilih2 = inp.next();
+        if (pilih2.equals("y")) {
+            menu();
+        } else if(pilih2.equals("n")){
+            exit();
+        }
+    }
+
     public static void exit() {
         clrscr();
-        System.out.println("Exiting...");
+        System.out.println("Goodbye..");
     }
 }
