@@ -6,99 +6,104 @@ public class t_akhir {
     }
 
     public static void menu() {
-        int pilih = 0;
+        int pilih, harga;
         Scanner inp = new Scanner(System.in);
         clrscr();
-        System.out.println("-[KALKULATOR MENU]-\n");
-        System.out.println("1. Penjumlahan");
-        System.out.println("2. Pengurangan");
-        System.out.println("3. Perkalian");
-        System.out.println("4. Pembagian");
+        d_harga();
+        System.out.println("- MENU KASIR -\n");
+        System.out.println("Pilih menu yg ingin diinput:");
+        System.out.println("1. Makanan");
+        System.out.println("2. Minuman");
         System.out.println("0. Exit");
         System.out.print("Pilih: ");
         pilih = inp.nextInt();
         switch(pilih){
             case 1:
-                penjumlahan();
+                makanan();
                 break;
             case 2:
-                pengurangan();
-                break;
-            case 3:
-                perkalian();
-                break;
-            case 4:
-                pembagian();
-                break;
-            case 0:
-                exit();
+                minuman();
                 break;
         }
     }
 
-    public static void penjumlahan() {
-        int angka1, angka2, hasil;
-        String pilih2 = "n";
-        Scanner inp = new Scanner(System.in);
-        clrscr();
-        System.out.println("-[PENJUMLAHAN]-\n");
-        System.out.print("Masukkan angka pertama: ");
-        angka1 = inp.nextInt();
-        System.out.print("Masukkan angka kedua: ");
-        angka2 = inp.nextInt();
-        hasil = angka1 + angka2;
-        clrscr();
-        System.out.println("-[PENJUMLAHAN]-\n");
-        System.out.println("Hasilnya adalah: " + hasil);
-        lanjut();
+
+    public static void d_harga(){
+        System.out.format("+        MAKANAN        +   +        MINUMAN        +%n");
+        System.out.format("+-------------+---------+   +-------------+---------+%n");
+        System.out.format("|    Menu     |  Harga  |   |    Menu     |  Harga  |%n");
+        System.out.format("+-------------+---------+   +-------------+---------+%n");
+        System.out.format("+ Nasi Goreng +  15000  +   + Jus Jengkol +   5000  +%n");
+        System.out.format("+ Nasi Bakar  +  20000  +   + Jus Petai   +  10000  +%n");
+        System.out.format("+ Nasi Rebus  +  25000  +   + Jas Jus     +  15000  +%n");
+        System.out.format("+ Nasi Kukus  +  30000  +   + Jus Tru     +  20000  +%n");
+        System.out.format("+-------------+---------+   +-------------+---------+%n\n");
     }
 
-    public static void pengurangan(){
-        int angka1, angka2, hasil;
+    public static void makanan() {
+        int pilih_mak, jumlah_mak, harga;
+        clrscr();
         Scanner inp = new Scanner(System.in);
+        System.out.println("1. Nasi Goreng");
+        System.out.println("2. Nasi Bakar");
+        System.out.println("3. Nasi Rebus");
+        System.out.println("4. Nasi Kukus");
+        System.out.print("Pilih: ");
+        pilih_mak = inp.nextInt();
+        System.out.print("Jumlah: ");
+        jumlah_mak = inp.nextInt();
+        switch(pilih_mak){
+            case 1:
+                harga = 15000;
+                break;
+            case 2:
+                harga = 20000;
+                break;
+            case 3:
+                harga = 25000;
+                break;
+            case 4:
+                harga = 30000;
+                break;
+            default:
+                harga = 0;
+        }
+        jumlah_mak = jumlah_mak * harga;
         clrscr();
-        System.out.println("-[PENGURANGAN]-\n");
-        System.out.print("Masukkan angka pertama: ");
-        angka1 = inp.nextInt();
-        System.out.print("Masukkan angka kedua: ");
-        angka2 = inp.nextInt();
-        hasil = angka1 - angka2;
-        clrscr();
-        System.out.println("-[PENGURANGAN]-\n");
-        System.out.println("Hasilnya adalah: " + hasil);
-        lanjut();
+        System.out.print("Total harga: " + jumlah_mak);
     }
 
-    public static void perkalian(){
-        int angka1, angka2, hasil;
+    public static void minuman() {
+        int pilih_min, jumlah_min, harga;
+        clrscr();
         Scanner inp = new Scanner(System.in);
+        System.out.println("1. Jus Jengkol");
+        System.out.println("2. Jus Petai");
+        System.out.println("3. Jas Jus");
+        System.out.println("4. Jus Tru");
+        System.out.print("Pilih: ");
+        pilih_min = inp.nextInt();
+        System.out.print("Jumlah: ");
+        jumlah_min = inp.nextInt();
+        switch(pilih_min){
+            case 1:
+                harga = 5000;
+                break;
+            case 2:
+                harga = 10000;
+                break;
+            case 3:
+                harga = 15000;
+                break;
+            case 4:
+                harga = 20000;
+                break;
+            default:
+                harga = 0;
+        }
+        jumlah_min = jumlah_min * harga;
         clrscr();
-        System.out.println("-[PERKALIAN]-\n");
-        System.out.print("Masukkan angka pertama: ");
-        angka1 = inp.nextInt();
-        System.out.print("Masukkan angka kedua: ");
-        angka2 = inp.nextInt();
-        hasil = angka1 * angka2;
-        clrscr();
-        System.out.println("-[PERKALIAN]-\n");
-        System.out.println("Hasilnya adalah: " + hasil);
-        lanjut();
-    }
-
-    public static void pembagian(){
-        int angka1, angka2, hasil;
-        Scanner inp = new Scanner(System.in);
-        clrscr();
-        System.out.println("-[PEMBAGIAN]-\n");
-        System.out.print("Masukkan angka pertama: ");
-        angka1 = inp.nextInt();
-        System.out.print("Masukkan angka kedua: ");
-        angka2 = inp.nextInt();
-        hasil = angka1 / angka2;
-        clrscr();
-        System.out.println("-[PEMBAGIAN]-\n");
-        System.out.println("Hasilnya adalah: " + hasil);
-        lanjut();
+        System.out.print("Total harga: " + jumlah_min);
     }
 
     public static void clrscr(){  
