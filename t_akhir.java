@@ -71,6 +71,7 @@ public class t_akhir {
         jumlah_mak = jumlah_mak * harga;
         clrscr();
         System.out.print("Total harga: " + jumlah_mak);
+        lanjut();
     }
 
     public static void minuman() {
@@ -104,6 +105,7 @@ public class t_akhir {
         jumlah_min = jumlah_min * harga;
         clrscr();
         System.out.print("Total harga: " + jumlah_min);
+        lanjut();
     }
 
     public static void clrscr(){  
