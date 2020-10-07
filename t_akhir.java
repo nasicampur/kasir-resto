@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 public class t_akhir {
+        static int uang, kembali, pilih_min, pilih_mak, jum_min, jum_mak, ttotal, ttotal2, harga_min[], jumlah_min[], harga_mak[], jumlah_mak[];
+        static int total = 0;
+        
     public static void main(String[] args) {
         menu();
     }
@@ -24,6 +27,11 @@ public class t_akhir {
             case 2:
                 minuman();
                 break;
+            case 0:
+                exit();
+                break;
+            default:
+                menu();
         }
     }
 
@@ -41,70 +49,88 @@ public class t_akhir {
     }
 
     public static void makanan() {
-        int pilih_mak, jumlah_mak, harga;
+        jumlah_mak = new int[99];
+        harga_mak = new int[99];
         clrscr();
         Scanner inp = new Scanner(System.in);
+        System.out.print("Berapa makanan yang ingin dibeli? ");
+        jum_mak = inp.nextInt();
+        for(int i=0;i<jum_mak;i++){
+        clrscr();
+        d_harga();
         System.out.println("1. Nasi Goreng");
         System.out.println("2. Nasi Bakar");
         System.out.println("3. Nasi Rebus");
         System.out.println("4. Nasi Kukus");
         System.out.print("Pilih: ");
         pilih_mak = inp.nextInt();
-        System.out.print("Jumlah: ");
-        jumlah_mak = inp.nextInt();
+        System.out.print("Jumlahnya berapa? ");
+        jumlah_mak[i] = inp.nextInt();
         switch(pilih_mak){
             case 1:
-                harga = 15000;
+                harga_mak[i] = 15000;
                 break;
             case 2:
-                harga = 20000;
+                harga_mak[i] = 20000;
                 break;
             case 3:
-                harga = 25000;
+                harga_mak[i] = 25000;
                 break;
             case 4:
-                harga = 30000;
+                harga_mak[i] = 30000;
                 break;
             default:
-                harga = 0;
+                harga_mak[i] = 0;
+                System.out.println("Masukkan angka 1-4!");
+            }
+            ttotal2 = harga_mak[i] * jumlah_mak[i];
+            total = ttotal + ttotal2;
         }
-        jumlah_mak = jumlah_mak * harga;
         clrscr();
-        System.out.print("Total harga: " + jumlah_mak);
+        System.out.println("Total harga: " + total);
         lanjut();
     }
 
     public static void minuman() {
-        int pilih_min, jumlah_min, harga;
+        jumlah_min = new int[99];
+        harga_min = new int[99];
         clrscr();
         Scanner inp = new Scanner(System.in);
+        System.out.print("Berapa minuman yang ingin dibeli? ");
+        jum_min = inp.nextInt();
+        for(int i=0;i<jum_min;i++){
+        clrscr();
+        d_harga();
         System.out.println("1. Jus Jengkol");
         System.out.println("2. Jus Petai");
         System.out.println("3. Jas Jus");
         System.out.println("4. Jus Tru");
         System.out.print("Pilih: ");
         pilih_min = inp.nextInt();
-        System.out.print("Jumlah: ");
-        jumlah_min = inp.nextInt();
+        System.out.print("Jumlahnya berapa? ");
+        jumlah_min[i] = inp.nextInt();
         switch(pilih_min){
             case 1:
-                harga = 5000;
+                harga_min[i] = 5000;
                 break;
             case 2:
-                harga = 10000;
+                harga_min[i] = 10000;
                 break;
             case 3:
-                harga = 15000;
+                harga_min[i] = 15000;
                 break;
             case 4:
-                harga = 20000;
+                harga_min[i] = 20000;
                 break;
             default:
-                harga = 0;
+                harga_min[i] = 0;
+                System.out.println("Masukkan angka 1-4!");
+            }
+            ttotal = harga_min[i] * jumlah_min[i];
+            total = ttotal + ttotal2;
         }
-        jumlah_min = jumlah_min * harga;
         clrscr();
-        System.out.print("Total harga: " + jumlah_min);
+        System.out.println("Total harga: " + total);
         lanjut();
     }
 
@@ -116,17 +142,23 @@ public class t_akhir {
     public static void lanjut(){
         String pilih2;
         Scanner inp = new Scanner(System.in);
-        System.out.print("\nKembali ke menu (y/n)? ");
+        System.out.print("\nKembali ke menu awal (y/n)? ");
         pilih2 = inp.next();
         if (pilih2.equals("y")) {
             menu();
-        } else if(pilih2.equals("n")){
+        } else if (pilih2.equals("n")){
             exit();
         }
     }
 
     public static void exit() {
         clrscr();
-        System.out.println("Goodbye..");
+        Scanner inp = new Scanner(System.in); 
+        System.out.println("Total harga: " + total);
+        System.out.print("Masukkan uang pembeli: ");
+        uang = inp.nextInt();
+        kembali = uang - total;
+        System.out.println("Kembaliannya: " + kembali +"\n\n");
+        System.out.println("+++++ Terima kasih sudah datang di restoran kami :) +++++");
     }
 }
