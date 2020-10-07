@@ -158,7 +158,19 @@ public class t_akhir {
         System.out.print("Masukkan uang pembeli: ");
         uang = inp.nextInt();
         kembali = uang - total;
-        System.out.println("Kembaliannya: " + kembali +"\n\n");
+        clrscr();
+        struk();
         System.out.println("+++++ Terima kasih sudah datang di restoran kami :) +++++");
+    }
+
+    public static void struk(){
+        String tbl = "| %-16s | %-7d |%n";
+        System.out.format("+----------------------------+%n");
+        System.out.format("|            STRUK           |%n");
+        System.out.format("+------------------+---------+%n");
+        System.out.format(tbl, "Uang anda: ", uang);
+        System.out.format(tbl, "Total harga: ", total);
+        System.out.format(tbl, "Kembalian anda: ", kembali);
+        System.out.format("+------------------+---------+%n\n");
     }
 }
