@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.io.IOException;
 
 public class t_akhir {
         static int uang, kembali, pilih_min, pilih_mak, jum_min, jum_mak, ttotal, ttotal2, harga_min[], jumlah_min[], harga_mak[], jumlah_mak[];
@@ -28,7 +29,7 @@ public class t_akhir {
                 minuman();
                 break;
             case 0:
-                exit();
+                bye();
                 break;
             default:
                 menu();
@@ -134,9 +135,14 @@ public class t_akhir {
         lanjut();
     }
 
-    public static void clrscr(){  
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  
+    public static void clrscr(){
+        //Clears Screen in java
+        try {
+            if (System.getProperty("os.name").contains("Windows"))
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            else
+                Runtime.getRuntime().exec("clear");
+        } catch (IOException | InterruptedException ex) {}
     }
 
     public static void lanjut(){
@@ -154,13 +160,18 @@ public class t_akhir {
     public static void exit() {
         clrscr();
         Scanner inp = new Scanner(System.in); 
-        System.out.println("Total harga: " + total);
+        System.out.println("Total harga: " + total + "\n");
         System.out.print("Masukkan uang pembeli: ");
         uang = inp.nextInt();
         kembali = uang - total;
         clrscr();
         struk();
-        System.out.println("+++++ Terima kasih sudah datang di restoran kami :) +++++");
+        System.out.println("+++++ Terima kasih sudah datang di restoran kami :) +++++\n");
+    }
+
+    public static void bye() {
+        clrscr();
+        System.out.println("Bye..");
     }
 
     public static void struk(){
