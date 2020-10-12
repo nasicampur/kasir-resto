@@ -10,7 +10,7 @@ public class t_akhir {
     }
 
     public static void menu() {
-        int pilih, harga;
+        int pilih;
         Scanner inp = new Scanner(System.in);
         clrscr();
         d_harga();
