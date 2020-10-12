@@ -38,15 +38,16 @@ public class t_akhir {
 
 
     public static void d_harga(){
-        System.out.format("+        MAKANAN        +   +        MINUMAN        +%n");
-        System.out.format("+-------------+---------+   +-------------+---------+%n");
-        System.out.format("|    Menu     |  Harga  |   |    Menu     |  Harga  |%n");
-        System.out.format("+-------------+---------+   +-------------+---------+%n");
-        System.out.format("+ Nasi Goreng +  15000  +   + Jus Jengkol +   5000  +%n");
-        System.out.format("+ Nasi Bakar  +  20000  +   + Jus Petai   +  10000  +%n");
-        System.out.format("+ Nasi Rebus  +  25000  +   + Jas Jus     +  15000  +%n");
-        System.out.format("+ Nasi Kukus  +  30000  +   + Jus Tru     +  20000  +%n");
-        System.out.format("+-------------+---------+   +-------------+---------+%n\n");
+        System.out.format("+-----------------------+     +-----------------------+%n");
+        System.out.format("+         MAKANAN       +     +         MINUMAN       +%n");
+        System.out.format("+-------------+---------+     +-------------+---------+%n");
+        System.out.format("|    Menu     |  Harga  |     |    Menu     |  Harga  |%n");
+        System.out.format("+-------------+---------+     +-------------+---------+%n");
+        System.out.format("+ Nasi Goreng +  15000  +     + Jus Jengkol +   5000  +%n");
+        System.out.format("+ Nasi Bakar  +  20000  +     + Jus Petai   +  10000  +%n");
+        System.out.format("+ Nasi Rebus  +  25000  +     + Jas Jus     +  15000  +%n");
+        System.out.format("+ Nasi Kukus  +  30000  +     + Jus Tru     +  20000  +%n");
+        System.out.format("+-------------+---------+     +-------------+---------+%n\n");
     }
 
     public static void makanan() {
@@ -136,7 +137,7 @@ public class t_akhir {
     }
 
     public static void clrscr(){
-        //Clears Screen in java
+        
         try {
             if (System.getProperty("os.name").contains("Windows"))
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -175,13 +176,13 @@ public class t_akhir {
     }
 
     public static void struk(){
-        String tbl = "| %-16s | %-7d |%n";
-        System.out.format("+----------------------------+%n");
-        System.out.format("|            STRUK           |%n");
-        System.out.format("+------------------+---------+%n");
-        System.out.format(tbl, "Uang anda: ", uang);
-        System.out.format(tbl, "Total harga: ", total);
-        System.out.format(tbl, "Kembalian anda: ", kembali);
-        System.out.format("+------------------+---------+%n\n");
+        String tbl = "| %-16s | %-8d |%n";
+        System.out.format("+-----------------------------+%n");
+        System.out.format("|      Ket         |    Rp    |%n");
+        System.out.format("+------------------+----------+%n");
+        System.out.format(tbl, "Cash anda ", uang);
+        System.out.format(tbl, "Total harga ", total);
+        System.out.format(tbl, "Kembalian anda ", kembali);
+        System.out.format("+------------------+----------+%n\n");
     }
 }
