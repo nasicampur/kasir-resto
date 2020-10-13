@@ -186,11 +186,11 @@ public class t_akhir {
 
     public static void bye() {
         clrscr();
-        System.out.println("Bye..");
+        System.out.println("gbye~");
     }
 
     public static void daftar_beli() {
-        Stream stream = makmin.stream();
+        Stream<String> stream = makmin.stream();
             stream.forEach((element) -> {
                 System.out.println(element);
         });
@@ -199,7 +199,7 @@ public class t_akhir {
 
     public static void struk(){
         System.out.println("               TOTAL                  \n");
-        Stream stream = makmin.stream();
+        Stream<String> stream = makmin.stream();
             stream.forEach((element) -> {
                 System.out.println(element);
         });
