@@ -1,9 +1,13 @@
 import java.util.Scanner;
+import java.util.Stack;
+import java.util.stream.Stream;
 import java.io.IOException;
 
 public class t_akhir {
-        static int uang, kembali, pilih_min, pilih_mak, jum_min, jum_mak, ttotal, ttotal2, harga_min[], jumlah_min[], harga_mak[], jumlah_mak[];
+        static int uang, kembali, pilih_min, pilih_mak, juml, jum_min, jum_mak, ttotal, ttotal2, harga_min[], jumlah_min[], harga_mak[], jumlah_mak[];
+        static String makanan[], minuman[];
         static int total = 0;
+        static Stack<String> makmin = new Stack<String>();
         
     public static void main(String[] args) {
         menu();
@@ -50,6 +54,7 @@ public class t_akhir {
         System.out.format("+-------------+---------+     +-------------+---------+%n\n");
     }
 
+
     public static void makanan() {
         jumlah_mak = new int[99];
         harga_mak = new int[99];
@@ -57,7 +62,7 @@ public class t_akhir {
         Scanner inp = new Scanner(System.in);
         System.out.print("Berapa makanan yang ingin dibeli? ");
         jum_mak = inp.nextInt();
-        for(int i=0;i<jum_mak;i++){
+        for(int i=1;i<=jum_mak;i++){
         clrscr();
         d_harga();
         System.out.println("1. Nasi Goreng");
@@ -71,15 +76,20 @@ public class t_akhir {
         switch(pilih_mak){
             case 1:
                 harga_mak[i] = 15000;
+                makmin.push("Nasi Goreng             : " + jumlah_mak[i] + " porsi");
+
                 break;
             case 2:
                 harga_mak[i] = 20000;
+                makmin.push("Nasi Bakar              : " + jumlah_mak[i] + " porsi");
                 break;
             case 3:
                 harga_mak[i] = 25000;
+                makmin.push("Nasi Rebus              : " + jumlah_mak[i] + " porsi");
                 break;
             case 4:
                 harga_mak[i] = 30000;
+                makmin.push("Nasi Kukus              : " + jumlah_mak[i] + " porsi");
                 break;
             default:
                 harga_mak[i] = 0;
@@ -89,7 +99,7 @@ public class t_akhir {
             total = ttotal + ttotal2;
         }
         clrscr();
-        System.out.println("Total harga: " + total);
+        daftar_beli();
         lanjut();
     }
 
@@ -100,7 +110,7 @@ public class t_akhir {
         Scanner inp = new Scanner(System.in);
         System.out.print("Berapa minuman yang ingin dibeli? ");
         jum_min = inp.nextInt();
-        for(int i=0;i<jum_min;i++){
+        for(int i=1;i<=jum_min;i++){
         clrscr();
         d_harga();
         System.out.println("1. Jus Jengkol");
@@ -114,15 +124,19 @@ public class t_akhir {
         switch(pilih_min){
             case 1:
                 harga_min[i] = 5000;
+                makmin.push("Jus Jengkol             : " + jumlah_min[i] + " porsi");
                 break;
             case 2:
                 harga_min[i] = 10000;
+                makmin.push("Jus Petai               : " + jumlah_min[i] + " porsi");
                 break;
             case 3:
                 harga_min[i] = 15000;
+                makmin.push("Jas Jus                 : " + jumlah_min[i] + " porsi");
                 break;
             case 4:
                 harga_min[i] = 20000;
+                makmin.push("Jus Tru                 : " + jumlah_min[i] + " porsi");
                 break;
             default:
                 harga_min[i] = 0;
@@ -132,7 +146,7 @@ public class t_akhir {
             total = ttotal + ttotal2;
         }
         clrscr();
-        System.out.println("Total harga: " + total);
+        daftar_beli();
         lanjut();
     }
 
@@ -161,13 +175,13 @@ public class t_akhir {
     public static void exit() {
         clrscr();
         Scanner inp = new Scanner(System.in); 
-        System.out.println("Total harga: " + total + "\n");
-        System.out.print("Masukkan uang pembeli: ");
+        daftar_beli();
+        System.out.print("Masukkan uang pembeli   : ");
         uang = inp.nextInt();
         kembali = uang - total;
         clrscr();
         struk();
-        System.out.println("+++++ Terima kasih sudah datang di restoran kami :) +++++\n");
+        System.out.println("\n+++++ Terima kasih sudah datang di restoran kami :) +++++\n");
     }
 
     public static void bye() {
@@ -175,14 +189,23 @@ public class t_akhir {
         System.out.println("Bye..");
     }
 
+    public static void daftar_beli() {
+        Stream stream = makmin.stream();
+            stream.forEach((element) -> {
+                System.out.println(element);
+        });
+        System.out.println("\nTotal harga             : " + total);
+    }
+
     public static void struk(){
-        String tbl = "| %-16s | %-8d |%n";
-        System.out.format("+-----------------------------+%n");
-        System.out.format("|      Ket         |    Rp    |%n");
-        System.out.format("+------------------+----------+%n");
-        System.out.format(tbl, "Cash anda ", uang);
-        System.out.format(tbl, "Total harga ", total);
-        System.out.format(tbl, "Kembalian anda ", kembali);
-        System.out.format("+------------------+----------+%n\n");
+        System.out.println("               TOTAL                  \n");
+        Stream stream = makmin.stream();
+            stream.forEach((element) -> {
+                System.out.println(element);
+        });
+        System.out.println("---------------------------------");
+        System.out.println("Uang anda               : " + uang);
+        System.out.println("Total harga             : " + total);
+        System.out.println("Kembalian anda          : " + kembali);
     }
 }
