@@ -150,7 +150,7 @@ public class t_akhir {
         lanjut();
     }
 
-    public static void cls(){
+    public static void clrscr(){
 		for(int k=0; k<35; k++) {
 			System.out.println();
 		}
