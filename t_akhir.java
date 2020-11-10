@@ -150,15 +150,10 @@ public class t_akhir {
         lanjut();
     }
 
-    public static void clrscr(){
-        
-        try {
-            if (System.getProperty("os.name").contains("Windows"))
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            else
-                Runtime.getRuntime().exec("clear");
-        } catch (IOException | InterruptedException ex) {}
-    }
+    public static void cls(){
+		for(int k=0; k<35; k++) {
+			System.out.println();
+		}
 
     public static void lanjut(){
         String pilih2;
