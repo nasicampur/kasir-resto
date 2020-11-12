@@ -1,5 +1,3 @@
-package TugasAkhir;
-
 public class tugasakhir {
     public static void main(String[] args) {
         d_harga();
