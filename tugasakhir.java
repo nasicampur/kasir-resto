@@ -5,7 +5,7 @@ public class tugasakhir {
 
     public static void d_harga(){
         System.out.format("+-----------------------------------+ %n");
-        System.out.format("+            DAFTAR MENU            + %n");
+        System.out.format("+           DAFTAR MENU            + %n");
         System.out.format("+--------------------+-------------+ %n");
         System.out.format("|   |      Menu      |    Harga    | %n");
         System.out.format("+---+----------------+-------------+ %n");
