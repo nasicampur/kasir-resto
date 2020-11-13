@@ -43,8 +43,8 @@ public class tugasakhir {
                 case 4:
                     harga[i] = 25000;
                     break;
-                
                 default:
+                    System.out.println("Input angka 1-8 saja!");
                     break;
             }
         }
