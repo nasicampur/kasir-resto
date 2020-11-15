@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class tugasakhir {
 
     static Scanner inp = new Scanner(System.in);
-    static int jumInput, pesanMenu, harga[],th = 0;
+    static int jumInput, pesanMenu, harga[],th = 0,uang,kembali;
     static String nama_makanan[];
     public static void main(String[] args) {
         d_harga();
@@ -87,6 +87,10 @@ public class tugasakhir {
            }else if(th < 10000){
             System.out.println("|     |  Total         |  Rp.  "+th+"  |");
            }            
+            kembali = uang - th;
             System.out.println("+-----+----------------+-------------+");
+            System.out.print("+-----+      Uang      +  Rp. ");
+            uang = inp.nextInt();
+            System.out.print("+-----+    Kembalian   +  Rp. " +kembali);
     }
 }
