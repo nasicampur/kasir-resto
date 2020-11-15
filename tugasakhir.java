@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class tugasakhir {
 
     static Scanner inp = new Scanner(System.in);
-    static int jumInput, pesanMenu, harga[],th;
-    static String nama_makanan[],total_harga;
+    static int jumInput, pesanMenu, harga[],th = 0;
+    static String nama_makanan[];
     public static void main(String[] args) {
         d_harga();
         menu();
@@ -70,24 +70,23 @@ public class tugasakhir {
                     break;
             }
             th=harga[i]+th;
-            if(harga[i]==2000 || harga[i]==3000 || harga[i]==5000 || harga[i]==7000){
-                total_harga="Total Harga   |  Rp.  "+th;
-            }
-            else if(harga[i]==13000 || harga[i]==15000 || harga[i]==18000 || harga[i]==25000){
-                total_harga="Total Harga   |  Rp. "+th;
-            }
         }
         struk();
     }
     
      public static void struk() {
-            System.out.println("+-------------------------------------+");
-            System.out.println("+          STRUK PEMBAYARAN           +");
-            System.out.println("+-----+----------------+--------------+");
+            System.out.println("+------------------------------------+");
+            System.out.println("+          STRUK PEMBAYARAN          +");
+            System.out.println("+-----+----------------+-------------+");
         for (int i = 1; i <= jumInput; i++){
             System.out.println("|  "+i+"  |  "+nama_makanan[i]+"  |");
         }
-            System.out.println("|  -  |  "+total_harga+"  |");
-            System.out.println("+-----+----------------+--------------+");
+        System.out.println("+-----+----------------+-------------+");
+           if(th >= 10000){
+            System.out.println("|     |  Total         |  Rp. "+th+"  |");
+           }else if(th < 10000){
+            System.out.println("|     |  Total         |  Rp.  "+th+"  |");
+           }            
+            System.out.println("+-----+----------------+-------------+");
     }
 }
