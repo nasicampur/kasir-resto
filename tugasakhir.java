@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class tugasakhir {
+public class tugasakhir{
 
     static Scanner inp = new Scanner(System.in);
-    static int jumInput, pesanMenu, harga[],th = 0,uang,kembali;
+    static int jumInput, pesanMenu, harga[], th = 0, uang, kembali;
     static String nama_makanan[];
     public static void main(String[] args) {
         d_harga();
@@ -69,7 +69,7 @@ public class tugasakhir {
                     System.out.println("Input angka 1-8 saja!");
                     break;
             }
-            th=harga[i]+th;
+            th = th + harga[i];
         }
         struk();
     }
@@ -79,7 +79,7 @@ public class tugasakhir {
             System.out.println("+          STRUK PEMBAYARAN          +");
             System.out.println("+-----+----------------+-------------+");
         for (int i = 1; i <= jumInput; i++){
-            System.out.println("|  "+i+"  |  "+nama_makanan[i]+"  |");
+            System.out.println("|  "+ i + "  |  " + nama_makanan[i] + "  |");
         }
         System.out.println("+-----+----------------+-------------+");
            if(th >= 10000){
@@ -87,10 +87,10 @@ public class tugasakhir {
            }else if(th < 10000){
             System.out.println("|     |  Total         |  Rp.  "+th+"  |");
            }            
-            kembali = uang - th;
             System.out.println("+-----+----------------+-------------+");
-            System.out.print("+-----+      Uang      +  Rp. ");
+            System.out.print("|     |  Uang          |  Rp. ");
             uang = inp.nextInt();
-            System.out.print("+-----+    Kembalian   +  Rp. " +kembali);
+            kembali = uang - th;
+            System.out.print("|     |  Kembalian     |  Rp. " + kembali);
     }
 }
