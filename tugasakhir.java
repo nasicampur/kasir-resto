@@ -93,30 +93,36 @@ public class tugasakhir {
             System.out.println("+-------------------------------------+");
             System.out.println("+           STRUK PEMBAYARAN          +");
             System.out.println("+-----+----------------+--------------+");
+            
         for (int i = 1; i <= jumInput; i++){
         	if(porsi[i]>9) {
-        	   System.out.println("| "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"  |");
+        	System.out.println("| "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"  |");
            } else if(th2[i]<10000) {
         	  System.out.println("|  "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"    |");
            } else if(th2[i]>99000) {
         	   System.out.println("|  "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"  |");
           } else System.out.println("|  "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"   |");
         }
+        
         System.out.println("+-----+----------------+--------------+");
             if(th>99000) {
             	 System.out.println("|  Total               |  Rp. " + th + "  |");
             } else if(th<10000) {
            	 System.out.println("|  Total               |  Rp. " + th + "    |");
             	} else System.out.println("|  Total               |  Rp. " + th + "   |");
+            
             if(uang>99000) {
             	System.out.println("|  Uang                |  Rp. " + uang + "  |");
             } else if(uang<10000) {
             	System.out.println("|  Uang                |  Rp. " + uang + "    |");
                } else System.out.println("|  Uang                |  Rp. " + uang + "   |");
+            
             if(kembali>99000) {
             	System.out.println("|  Kembalian           |  Rp. " + kembali + "  |");
-            } else if(kembali<10000) {
+            } else if(kembali<10000 && kembali>0) {
             	System.out.println("|  Kembalian           |  Rp. " + kembali + "    |");
+               } else if(kembali == 0) {
+            	System.out.println("|  Kembalian           |  Rp. " + kembali + "       |");
                } else System.out.println("|  Kembalian           |  Rp. " + kembali + "   |");
             System.out.println("+----------------------+--------------+");
     }
