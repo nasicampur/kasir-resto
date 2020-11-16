@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
-public class tugasakhir{
+public class tugasakhir {
 
     static Scanner inp = new Scanner(System.in);
     static int jumInput, pesanMenu, harga[], th = 0, uang, kembali;
     static String nama_makanan[];
     public static void main(String[] args) {
+    	cls();
         d_harga();
         menu();
     }
@@ -70,27 +71,37 @@ public class tugasakhir{
                     break;
             }
             th = th + harga[i];
+            System.out.print("Masukkan uang pembeli: ");
+            uang = inp.nextInt();
+            kembali = uang - th;
         }
         struk();
     }
     
      public static void struk() {
-            System.out.println("+------------------------------------+");
-            System.out.println("+          STRUK PEMBAYARAN          +");
-            System.out.println("+-----+----------------+-------------+");
+    	 	cls();
+            System.out.println("+-------------------------------------+");
+            System.out.println("+           STRUK PEMBAYARAN          +");
+            System.out.println("+-----+----------------+--------------+");
         for (int i = 1; i <= jumInput; i++){
-            System.out.println("|  "+ i + "  |  " + nama_makanan[i] + "  |");
+            System.out.println("|  "+ i + "  |  " + nama_makanan[i] + "   |");
         }
-        System.out.println("+-----+----------------+-------------+");
-           if(th >= 10000){
-            System.out.println("|     |  Total         |  Rp. "+th+"  |");
-           }else if(th < 10000){
-            System.out.println("|     |  Total         |  Rp.  "+th+"  |");
-           }            
-            System.out.println("+-----+----------------+-------------+");
-            System.out.print("|     |  Uang          |  Rp. ");
-            uang = inp.nextInt();
-            kembali = uang - th;
-            System.out.print("|     |  Kembalian     |  Rp. " + kembali);
+        System.out.println("+-----+----------------+--------------+");
+            if(th>99000) {
+            	 System.out.println("|     |  Total         |  Rp. " + th + "  |");
+            } else  System.out.println("|     |  Total         |  Rp. " + th + "   |");
+            if(uang>99000) {
+            	System.out.println("|     |  Uang          |  Rp. " + uang + "  |");
+            } else System.out.println("|     |  Uang          |  Rp. " + uang + "   |");
+            if(kembali>99000) {
+            	System.out.println("|     |  Kembalian     |  Rp. " + kembali + "  |");
+            } else System.out.println("|     |  Kembalian     |  Rp. " + kembali + "   |");
+            System.out.println("+-----+----------------+--------------+");
     }
+     
+     public static void cls(){
+ 		for(int i=0; i<35; i++) {
+ 			System.out.println();
+ 		}
+     }
 }
