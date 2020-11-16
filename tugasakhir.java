@@ -95,10 +95,10 @@ public class tugasakhir {
             System.out.println("+-----+----------------+--------------+");
         for (int i = 1; i <= jumInput; i++){
         	if(porsi[i]>9) {
-        		System.out.println("| "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"  |");
+        	   System.out.println("| "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"  |");
            } else if(th2[i]<10000) {
         	  System.out.println("|  "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"    |");
-           } else if(th>99000) {
+           } else if(th2[i]>99000) {
         	   System.out.println("|  "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"  |");
           } else System.out.println("|  "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"   |");
         }
