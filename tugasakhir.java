@@ -1,6 +1,4 @@
-package TugasAkhir;
 import java.util.Scanner;
-
 public class tugasakhir {
 
     static Scanner inp = new Scanner(System.in);
@@ -35,10 +33,11 @@ public class tugasakhir {
         jumInput = inp.nextInt();
         cls();
         for (int i = 1; i <= jumInput; i++) {
-        	d_harga();
+            d_harga();
         	System.out.println("Menu ke-" + i);
             System.out.print("\nPilih menu yang dipesan: ");
             pesanMenu = inp.nextInt();
+            
             switch (pesanMenu) {
                 case 1:
                     harga[i] = 13000;
@@ -78,6 +77,7 @@ public class tugasakhir {
             }
             System.out.print("Berapa porsi? ");
             porsi[i] = inp.nextInt();
+            cls();
             th2[i] = harga[i] * porsi[i];
             th = th + harga[i] * porsi[i];
         }
@@ -91,41 +91,43 @@ public class tugasakhir {
     
      public static void struk() {
     	 	cls();
-            System.out.println("+-------------------------------------+");
-            System.out.println("+           STRUK PEMBAYARAN          +");
-            System.out.println("+-----+----------------+--------------+");
+            System.out.println("+---------------------------------------+");
+            System.out.println("+            STRUK PEMBAYARAN           +");
+            System.out.println("+-------+----------------+--------------+");
+            System.out.println("| Porsi |  Menu          |  Harga       +");
+            System.out.println("+-------+----------------+--------------+");
             
         for (int i = 1; i <= jumInput; i++){
         	if(porsi[i]>9) {
-        	System.out.println("| "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"  |");
+        	System.out.println("|  "+ porsi[i] + "   |  " + nama_makanan[i] + th2[i] +"  |");
            } else if(th2[i]<10000) {
-        	  System.out.println("|  "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"    |");
+        	  System.out.println("|   "+ porsi[i] + "   |  " + nama_makanan[i] + th2[i] +"    |");
            } else if(th2[i]>99000) {
-        	   System.out.println("|  "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"  |");
-          } else System.out.println("|  "+ porsi[i] + "  |  " + nama_makanan[i] + th2[i] +"   |");
+        	   System.out.println("|   "+ porsi[i] + "   |  " + nama_makanan[i] + th2[i] +"  |");
+          } else System.out.println("|   "+ porsi[i] + "   |  " + nama_makanan[i] + th2[i] +"   |");
         }
         
-        System.out.println("+-----+----------------+--------------+");
+        System.out.println("+-------+----------------+--------------+");
             if(th>99000) {
-            	 System.out.println("|  Total               |  Rp. " + th + "  |");
+            	 System.out.println("|  Total                 |  Rp. " + th + "  |");
             } else if(th<10000) {
-           	 System.out.println("|  Total               |  Rp. " + th + "    |");
-            	} else System.out.println("|  Total               |  Rp. " + th + "   |");
+           	 System.out.println("|  Total                 |  Rp. " + th + "    |");
+            	} else System.out.println("|  Total                 |  Rp. " + th + "   |");
             
             if(uang>99000) {
-            	System.out.println("|  Uang                |  Rp. " + uang + "  |");
+            	System.out.println("|  Uang                  |  Rp. " + uang + "  |");
             } else if(uang<10000) {
-            	System.out.println("|  Uang                |  Rp. " + uang + "    |");
-               } else System.out.println("|  Uang                |  Rp. " + uang + "   |");
+            	System.out.println("|  Uang                  |  Rp. " + uang + "    |");
+               } else System.out.println("|  Uang                  |  Rp. " + uang + "   |");
             
             if(kembali>99000) {
-            	System.out.println("|  Kembalian           |  Rp. " + kembali + "  |");
+            	System.out.println("|  Kembalian             |  Rp. " + kembali + "  |");
             } else if(kembali<10000 && kembali>0) {
-            	System.out.println("|  Kembalian           |  Rp. " + kembali + "    |");
+            	System.out.println("|  Kembalian             |  Rp. " + kembali + "    |");
                } else if(kembali == 0) {
-            	System.out.println("|  Kembalian           |  Rp. " + kembali + "       |");
-               } else System.out.println("|  Kembalian           |  Rp. " + kembali + "   |");
-            System.out.println("+----------------------+--------------+");
+            	System.out.println("|  Kembalian             |  Rp. " + kembali + "       |");
+               } else System.out.println("|  Kembalian             |  Rp. " + kembali + "   |");
+            System.out.println("+------------------------+--------------+");
     }
      
      public static void cls(){
